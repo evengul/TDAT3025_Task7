@@ -7,6 +7,7 @@ from sklearn import preprocessing
 from sklearn.decomposition import PCA
 from mpl_toolkits.mplot3d import Axes3D
 
+# My machine complained about RAM usage, so had to cut this short. Still about 60% of the data.
 df = pd.read_csv("agaricus-lepiota.csv")[0:5000]
 
 X = pd.get_dummies(df)
@@ -50,7 +51,7 @@ fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
 plt.scatter(X_PCA[:, 0], X_PCA[:, 1], zs=X_PCA[:, 2], c=y_kmeans, s=50, cmap='viridis')
 centers = kmeans.cluster_centers_
-plt.scatter(centers[:, 0], centers[:, 1], zs=centers[:, 2], c='black', s=500, alpha=0.75)
+plt.scatter(centers[:, 0], centers[:, 1], zs=centers[:, 2], c='black', s=500, alpha=0.5)
 
 plt.show()
 
